@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { Search, SquarePen, X } from '@lucide/svelte';
+	import { Search, SquarePen, X, Package, Code2 } from '@lucide/svelte';
 	import { KeyboardShortcutInfo } from '$lib/components/app';
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
+	import { page } from '$app/state';
+	import { routerModels } from '$lib/stores/models.svelte';
+	import { serverStore } from '$lib/stores/server.svelte';
+	import { ServerModelStatus } from '$lib/enums';
 
 	interface Props {
 		handleMobileSidebarItemClick: () => void;
@@ -15,6 +19,10 @@
 		isSearchModeActive = $bindable(),
 		searchQuery = $bindable()
 	}: Props = $props();
+
+	let loadedCount = $derived(
+		routerModels().filter((m) => m.status?.value === ServerModelStatus.LOADED).length
+	);
 
 	let searchInput: HTMLInputElement | null = $state(null);
 
@@ -61,6 +69,29 @@
 			</div>
 
 			<KeyboardShortcutInfo keys={['shift', 'cmd', 'o']} />
+		</Button>
+
+		<Button
+			class="w-full justify-start gap-2 {page.route.id === '/models' ? 'bg-accent' : ''}"
+			href="#/models"
+			onclick={handleMobileSidebarItemClick}
+			variant="ghost"
+		>
+			<Package class="h-4 w-4" />
+			Models
+			{#if serverStore.isRouterMode && loadedCount > 0}
+				<span class="ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-green-500/15 px-1.5 text-[10px] font-semibold text-green-500">{loadedCount}</span>
+			{/if}
+		</Button>
+
+		<Button
+			class="w-full justify-start gap-2 {page.route.id === '/ide' ? 'bg-accent' : ''}"
+			href="#/ide"
+			onclick={handleMobileSidebarItemClick}
+			variant="ghost"
+		>
+			<Code2 class="h-4 w-4" />
+			IDE
 		</Button>
 
 		<Button

@@ -99,6 +99,20 @@ int main(int argc, char ** argv) {
         params.model_alias.insert(params.model.name);
     }
 
+    // In router mode (no model path given), default --models-dir to a local "models"
+    // folder if one exists and the user didn't set it via flag or env.
+    // This lets users simply drop .gguf files into ./models/ and start the server
+    // without any extra flags.
+    if (params.model.path.empty() && params.models_dir.empty()) {
+        const std::string default_models_dir = "models";
+        if (std::filesystem::exists(default_models_dir) &&
+            std::filesystem::is_directory(default_models_dir)) {
+            params.models_dir = default_models_dir;
+            LOG_INF("%s: --models-dir not set, defaulting to local '%s' directory\n",
+                    __func__, default_models_dir.c_str());
+        }
+    }
+
     common_init();
 
     // struct that contains llama context and inference
