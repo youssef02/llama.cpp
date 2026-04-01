@@ -284,7 +284,7 @@
 		</div>
 	{/if}
 
-	<div class="info my-6 grid gap-4 tabular-nums">
+	<div class="info my-5 grid gap-3 tabular-nums">
 		{#if displayedModel}
 			<div
 				bind:this={statsContainerEl}

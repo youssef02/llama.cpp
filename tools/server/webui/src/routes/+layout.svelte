@@ -229,7 +229,7 @@
 
 			{#if !(alwaysShowSidebarOnDesktop && isDesktop)}
 				<Sidebar.Trigger
-					class="transition-left absolute left-0 z-[900] duration-200 ease-linear {sidebarOpen
+					class="transition-left absolute left-0 z-[900] rounded-xl bg-background/60 shadow-sm backdrop-blur-xl border border-border/20 duration-200 ease-linear {sidebarOpen
 						? 'md:left-[var(--sidebar-width)]'
 						: 'md:left-0!'}"
 					style="translate: 1rem 1rem;"

@@ -397,7 +397,7 @@
 				</div>
 			{/if}
 
-			<div class="conversation-chat-form pointer-events-auto rounded-t-3xl pb-4">
+			<div class="conversation-chat-form pointer-events-auto rounded-t-2xl pb-4">
 				<ChatScreenForm
 					disabled={hasPropsError || isEditing()}
 					{initialMessage}
@@ -427,10 +427,13 @@
 		role="main"
 	>
 		<div class="w-full max-w-[48rem] px-4">
-			<div class="mb-10 text-center" in:fade={{ duration: 300 }}>
-				<h1 class="mb-2 text-2xl font-semibold tracking-tight md:text-3xl">llama.cpp</h1>
+			<div class="mb-12 text-center" in:fade={{ duration: 400 }}>
+				<div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-2xl shadow-sm">
+					&#x1F999;
+				</div>
+				<h1 class="mb-3 text-2xl font-bold tracking-tight md:text-3xl">llama.cpp</h1>
 
-				<p class="text-muted-foreground md:text-lg">
+				<p class="text-muted-foreground/80 md:text-lg">
 					{serverStore.props?.modalities?.audio
 						? 'Record audio, type a message '
 						: 'Type a message'} or upload files to get started

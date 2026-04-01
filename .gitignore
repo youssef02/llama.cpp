@@ -95,10 +95,17 @@
 # Server Web UI temporary files
 /tools/server/webui/node_modules
 /tools/server/webui/dist
+/tools/server/webui/pnpm-lock.yaml
+
+# Server built public files (keep only tracked files)
+/tools/server/public/_app/
+/tools/server/public/favicon.svg
+/tools/server/public/index.html
 
 # Python
 
 /.venv
+/venv
 __pycache__/
 */poetry.lock
 poetry.toml

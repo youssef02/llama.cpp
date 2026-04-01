@@ -88,9 +88,9 @@
 
 <!-- svelte-ignore a11y_mouse_events_have_key_events -->
 <button
-	class="group flex min-h-9 w-full cursor-pointer items-center justify-between space-x-3 rounded-lg px-3 py-1.5 text-left transition-colors hover:bg-foreground/10 {isActive
-		? 'bg-foreground/5 text-accent-foreground'
-		: ''}"
+	class="group flex min-h-9 w-full cursor-pointer items-center justify-between space-x-3 rounded-xl px-3 py-2 text-left transition-all duration-150 hover:bg-accent {isActive
+		? 'bg-primary/8 text-primary font-medium'
+		: 'text-foreground/80'}"
 	onclick={handleSelect}
 	onmouseover={handleMouseOver}
 	onmouseleave={handleMouseLeave}

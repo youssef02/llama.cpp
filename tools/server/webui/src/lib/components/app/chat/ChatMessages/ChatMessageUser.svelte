@@ -88,7 +88,7 @@
 
 		{#if message.content.trim()}
 			<Card
-				class="max-w-[80%] overflow-y-auto rounded-[1.125rem] border-none bg-primary/5 px-3.75 py-1.5 text-foreground backdrop-blur-md data-[multiline]:py-2.5 dark:bg-primary/15"
+				class="max-w-[80%] overflow-y-auto rounded-2xl border-none bg-primary/8 px-4 py-2 text-foreground shadow-sm data-[multiline]:py-3 dark:bg-primary/12"
 				data-multiline={isMultiline ? '' : undefined}
 				style="max-height: var(--max-message-height); overflow-wrap: anywhere; word-break: break-word;"
 			>
